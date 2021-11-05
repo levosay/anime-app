@@ -20,11 +20,13 @@ const Card = ({ item }) => {
       onMouseEnter={toggleHover}
       onMouseLeave={toggleHover}
     >
-      <img
-        className={hover ? classes.card__img_active : classes.card__img}
-        src={item.attributes.posterImage.large}
-        alt={item.attributes.canonicalTitle}
-      />
+      <div className={classes.card__img__wrapper}>
+        <img
+          className={hover ? classes.card__img_active : classes.card__img}
+          src={item.attributes.posterImage.large}
+          alt={item.attributes.canonicalTitle}
+        />
+      </div>
       {
         hover
           ? <CardFooter title={item.attributes.canonicalTitle} />
