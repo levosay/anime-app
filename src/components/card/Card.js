@@ -12,11 +12,10 @@ const Card = ({ item }) => {
     setHover((prevState) => !prevState);
   }
 
-  console.log(item)
-  console.log(hover)
+  // console.log(item)
+  // console.log(hover)
   return (
     <div
-      // className={!hover ? classes.card : classes.card_active}
       className={classes.card}
       onMouseEnter={toggleHover}
       onMouseLeave={toggleHover}
