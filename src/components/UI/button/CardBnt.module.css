@@ -26,6 +26,7 @@
 .btnCard:hover {
   background: #fe6637;
   color: #fff;
+  cursor: pointer;
 }
 .btnCard:hover:before {
   left: 150px;

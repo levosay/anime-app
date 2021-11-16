@@ -1,0 +1,97 @@
+.detail {
+  display: flex;
+  max-width: 1200px;
+  margin: auto;
+}
+.detailInfo {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  width: 353px;
+}
+.detailImg {
+  width: 100%;
+  height: 500px;
+  object-fit: contain;
+}
+.detailImgWrapper {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 353px;
+  overflow: hidden;
+  border-radius: 10px;
+  box-shadow: 0 10px 13px -7px #000, 5px 5px 15px 5px rgba(0, 0, 0, 0);
+}
+.detailRating {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  padding: 10px;
+  background: red;
+  border-radius: 10px;
+  box-shadow: 0 10px 13px -7px #000, 5px 5px 15px 5px rgba(0, 0, 0, 0);
+  color: #fff;
+  font-size: 24px;
+  font-weight: bold;
+  z-index: 4;
+}
+.detailStatus {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  padding: 10px;
+  background: red;
+  border-radius: 10px;
+  box-shadow: 0 10px 13px -7px #000, 5px 5px 15px 5px rgba(0, 0, 0, 0);
+  color: darkred;
+  font-size: 24px;
+  font-weight: bold;
+  z-index: 4;
+}
+.detailDate {
+  display: flex;
+  flex-direction: column;
+}
+.detailDateTitle {
+  margin: 15px 0;
+  font-size: 22px;
+  text-transform: uppercase;
+}
+.detailDateText {
+  margin: auto;
+  padding: 8px;
+  font-weight: bold;
+  border: #fe6637 solid 2px;
+  border-radius: 10px;
+}
+.detailDescription {
+  margin-left: 75px;
+}
+.detailDescriptionTitle {
+  font-size: 44px;
+  text-align: center;
+  color: #fe6637;
+}
+.detailDescriptionText {
+  font-size: 24px;
+}
+
+.progress {
+  display: flex;
+  height: 100%;
+  background-color: #fe6637;
+  color: darkred;
+  justify-content: flex-end;
+  align-items: center;
+  font-size: 18px;
+  font-weight: bold;
+}
+.progressWrapper {
+  margin: auto;
+  width: 100%;
+  height: 20px;
+  background-color: #ffbfbe;
+}
+
+/*# sourceMappingURL=detail.module.css.map */

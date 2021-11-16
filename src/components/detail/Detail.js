@@ -1,73 +1,62 @@
 import React from 'react'
-import {
-  arrayOf, bool, number, shape, string
-} from 'prop-types'
+import classes from './detail.module.css'
+import Player from '../youTubePlayer/Player'
 
-const Detail = ({ item }) => (
-  <div>
-    <div>
-      {
-        item.attributes.coverImage
-          ? <img src={item.attributes.coverImage.original} alt={item.attributes.canonicalTitle} />
-          : null
-      }
-      <span>{item.attributes.ageRating}</span>
-      <div>{item.attributes.averageRating}</div>
+const Detail = ({
+  title, src, averageRating, ageRating, description, startDate, endDate, episodeCount, status, youtubeVideoId
+}) => {
+  const rating = (value) => {
+    const roundedValue = `${Math.floor(value)}%`
+    return (
+      <div className={classes.progressWrapper}>
+        <div
+          className={classes.progress}
+          style={{ width: `${roundedValue}` }}
+        >
+          {roundedValue}
+        </div>
+      </div>
+    )
+  }
+  return (
+    <div className={classes.detail}>
+      <div className={classes.detailInfo}>
+        <div className={classes.detailImgWrapper}>
+          <span className={classes.detailRating}>{ageRating}</span>
+          <span className={classes.detailStatus}>{status}</span>
+          <img
+            className={classes.detailImg}
+            src={src}
+            alt={title}
+          />
+          {rating(averageRating)}
+        </div>
+        <div className={classes.detailDate}>
+          <span className={classes.detailDateTitle}>series release</span>
+          <span className={classes.detailDateText}>
+          {startDate}
+            {' '}
+            -
+            {' '}
+            {endDate}
+          </span>
+          <span className={classes.detailDateTitle}>Number of episodes</span>
+          <span className={classes.detailDateText}>{episodeCount}</span>
+        </div>
+      </div>
+      <div className={classes.detailDescription}>
+        <h1 className={classes.detailDescriptionTitle}>{title}</h1>
+        <p className={classes.detailDescriptionText}>{description}</p>
+        {youtubeVideoId
+          ? (
+            <Player
+              youtubeVideoId={youtubeVideoId}
+            />
+          )
+          : null}
+      </div>
     </div>
-    <h3>{item.attributes.canonicalTitle}</h3>
-  </div>
-)
-Detail.propTypes = {
-  item: shape({
-    attributes: shape({
-      abbreviatedTitles: arrayOf(string),
-      ageRating: string,
-      ageRatingGuide: string,
-      averageRating: string,
-      canonicalTitle: string,
-      coverImage: shape({
-        large: string,
-        original: string,
-        small: string,
-        tiny: string
-      }),
-      coverImageTopOffset: number,
-      createdAt: string,
-      description: string,
-      endDate: string,
-      episodeCount: number,
-      episodeLength: number,
-      favoritesCount: number,
-      nsfw: bool,
-      popularityRank: number,
-      posterImage: shape({
-        large: string,
-        original: string,
-        small: string,
-        tiny: string
-      }),
-      ratingRank: number,
-      showType: string,
-      slug: string,
-      startDate: string,
-      status: string,
-      subtype: string,
-      synopsis: string,
-      titles: shape({
-        en: string,
-        en_jp: string,
-        ja_jp: string
-      }),
-      totalLength: number,
-      updatedAt: string,
-      userCount: number,
-      youtubeVideoId: string
-    }),
-    id: string,
-    links: shape({
-      self: string
-    }),
-    type: string
-  })
+  )
 }
+
 export default Detail

@@ -1,95 +1,64 @@
 import React, { useState } from 'react'
-import {
-  arrayOf, bool, number, shape, string
-} from 'prop-types'
+import { Link } from 'react-router-dom'
 import classes from './Card.module.css'
 import CardFooter from './cardFooter/CardFooter'
 
-const Card = ({ item }) => {
+const Card = ({
+  addFavorite, removeFavorite, favorite, showDetail, ...props
+}) => {
   const [hover, setHover] = useState(false)
-
-  const toggleHover = () => {
-    setHover((prevState) => !prevState);
+  const toggleHover = (event) => {
+    if (event === 'onMouseEnter') setHover(true)
+    if (event === 'onMouseLeave') setHover(false)
   }
-
-  // console.log(item)
-  // console.log(hover)
   return (
     <div
+      id="card"
       className={classes.card}
-      onMouseEnter={toggleHover}
-      onMouseLeave={toggleHover}
+      onMouseEnter={(event) => toggleHover(event._reactName)}
+      onMouseLeave={(event) => toggleHover(event._reactName)}
     >
-      <div className={classes.card__img__wrapper}>
+      <Link
+        to="/detail"
+        className={classes.card__img__wrapper}
+        onClick={() => showDetail(props.id)}
+      >
         <img
           className={hover ? classes.card__img_active : classes.card__img}
-          src={item.attributes.posterImage.large}
-          alt={item.attributes.canonicalTitle}
+          src={props.src}
+          alt={props.alt}
         />
-      </div>
+      </Link>
       {
         hover
-          ? <CardFooter title={item.attributes.canonicalTitle} />
+          ? (
+            <CardFooter
+              id={props.id}
+              title={props.title}
+              imgSrc={props.src}
+              imgAlt={props.alt}
+              addFavorite={addFavorite}
+              removeFavorite={removeFavorite}
+              favorite={favorite}
+            />
+          )
           : null
       }
       {/* <Detail */}
       {/*  item={item} */}
       {/* /> */}
+      {/* <Routes> */}
+      {/*  <Route */}
+      {/*    path="/detail" */}
+      {/*    element={( */}
+      {/*      <div> */}
+      {/*        <h3>33333</h3> */}
+      {/*      </div> */}
+      {/*    )} */}
+      {/*  /> */}
+      {/* </Routes> */}
     </div>
   )
 }
 
-Card.propTypes = {
-  item: shape({
-    attributes: shape({
-      abbreviatedTitles: arrayOf(string),
-      ageRating: string,
-      ageRatingGuide: string,
-      averageRating: string,
-      canonicalTitle: string,
-      coverImage: shape({
-        large: string,
-        original: string,
-        small: string,
-        tiny: string
-      }),
-      coverImageTopOffset: number,
-      createdAt: string,
-      description: string,
-      endDate: string,
-      episodeCount: number,
-      episodeLength: number,
-      favoritesCount: number,
-      nsfw: bool,
-      popularityRank: number,
-      posterImage: shape({
-        large: string,
-        original: string,
-        small: string,
-        tiny: string
-      }),
-      ratingRank: number,
-      showType: string,
-      slug: string,
-      startDate: string,
-      status: string,
-      subtype: string,
-      synopsis: string,
-      titles: shape({
-        en: string,
-        en_jp: string,
-        ja_jp: string
-      }),
-      totalLength: number,
-      updatedAt: string,
-      userCount: number,
-      youtubeVideoId: string
-    }),
-    id: string,
-    links: shape({
-      self: string
-    }),
-    type: string
-  })
-}
 export default Card

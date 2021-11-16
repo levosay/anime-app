@@ -1,0 +1,41 @@
+.header
+
+  width: 100%
+  margin-top: 0
+  height: content-box
+  background: #ffbfbe
+  z-index: 10
+  &Wrapper
+    display: grid
+    grid-template-rows: 1fr
+    grid-template-columns: 1fr 1fr 1fr
+    align-items: center
+    grid-template-areas: "title input links"
+    max-width: 1200px
+    margin: auto
+  &Title
+    grid-area: title
+    font-size: 38px
+    color: #00bfff
+    text-shadow: 1px 1px 3px #666
+    &Link
+      text-decoration: none
+  &Input
+    grid-area: input
+    padding: 10px
+    border: #00bfff solid 1px
+    border-radius: 10px
+  &Link
+    color: #f5f5f7
+    font-size: 38px
+    font-weight: bold
+    text-transform: uppercase
+    text-decoration: none
+    margin-right: 30px
+    text-shadow: 1px 1px 3px #666
+    &:hover
+      color: #00bfff
+    &Wrapper
+      grid-area: links
+      display: flex
+      justify-content: space-between
