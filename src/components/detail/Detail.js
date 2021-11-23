@@ -1,4 +1,5 @@
 import React from 'react'
+import { string } from 'prop-types'
 import classes from './detail.module.css'
 import Player from '../youTubePlayer/Player'
 
@@ -34,7 +35,7 @@ const Detail = ({
         <div className={classes.detailDate}>
           <span className={classes.detailDateTitle}>series release</span>
           <span className={classes.detailDateText}>
-          {startDate}
+            {startDate}
             {' '}
             -
             {' '}
@@ -57,6 +58,19 @@ const Detail = ({
       </div>
     </div>
   )
+}
+
+Detail.prototype = {
+  title: string,
+  src: string,
+  averageRating: string,
+  ageRating: string,
+  description: string,
+  startDate: string,
+  endDate: string,
+  episodeCount: string,
+  status: string,
+  youtubeVideoId: string
 }
 
 export default Detail
