@@ -7,11 +7,11 @@
 }
 .headerWrapper {
   display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
   grid-template-rows: 1fr;
-  grid-template-columns: 1fr 1fr 1fr;
   align-items: center;
-  grid-template-areas: "title input links";
-  max-width: 1200px;
+  grid-template-areas: "title input input links links";
+  max-width: 1150px;
   margin: auto;
 }
 .headerTitle {
@@ -24,19 +24,22 @@
   text-decoration: none;
 }
 .headerInput {
-  grid-area: input;
   padding: 10px;
   border: #00bfff solid 1px;
   border-radius: 10px;
 }
+.headerInputWrapper {
+  grid-area: input;
+  display: flex;
+  justify-content: center;
+}
 .headerLink {
-  color: #f5f5f7;
   font-size: 38px;
   font-weight: bold;
   text-transform: uppercase;
   text-decoration: none;
-  margin-right: 30px;
   text-shadow: 1px 1px 3px #666;
+  color: #f5f5f7;
 }
 .headerLink:hover {
   color: #00bfff;
@@ -44,7 +47,7 @@
 .headerLinkWrapper {
   grid-area: links;
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
 }
 
 /*# sourceMappingURL=header.module.css.map */

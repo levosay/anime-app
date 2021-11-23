@@ -18,8 +18,8 @@ const App = () => {
   const href = window.location.pathname
   const dataLocalStorage = JSON.parse(localStorage.getItem('favorite'))
 
+
   useEffect(() => {
-    console.log('ЗАХОДИТ??')
     if (fetching && href === '/' && valueSearch === '') {
       fetchTemplate(`https://kitsu.io/api/edge/anime?page%5Blimit%5D=20&page%5Boffset%5D=${currentPage}`, 'get')
         .then((response) => {
@@ -52,7 +52,6 @@ const App = () => {
   }
   useEffect(() => {
     if (!localStorage.getItem('favorite') || !localStorage.getItem('favorite').length) {
-      console.log('В ЭТОМ ЧТО ЛИ ПРОБЛЕМА??')
       localStorage.setItem('favorite', JSON.stringify([]))
     }
     document.addEventListener('scroll', scrollHandler)
@@ -60,15 +59,6 @@ const App = () => {
       document.removeEventListener('scroll', scrollHandler)
     }
   }, [])
-
-  // useEffect(() => {
-  //
-  //   if (favorite.length && ) {
-  //     console.log('ИЗБРАННОЕ ИЗМЕНИЛОСЬ')
-  //     localStorage.setItem('favorite', JSON.stringify(favorite))
-  //   }
-  //   // localStorage.setItem('favorite', JSON.stringify(favorite))
-  // }, [favorite])
 
   const addFavorite = (e, id, src, alt, title) => {
     setFavorite((prevList) => {
@@ -111,7 +101,6 @@ const App = () => {
         hiddenInput={hiddenInput}
         inputVisible={inputVisible}
       />
-      {/* {console.log('ТУТ УЖЕ ПОЛУЧАЕМ ИЗ ЛОКАЛА ', JSON.parse(localStorage.getItem('favorite')))} */}
       <Routes>
         <Route
           path="/favorite"

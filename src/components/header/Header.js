@@ -1,9 +1,10 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-
+import { bool, func, string } from 'prop-types'
 import classes from './header.module.css'
 
 const Header = ({
+  // eslint-disable-next-line react/prop-types
   valueSearch, setValueSearch, hiddenInput, inputVisible
 }) => (
   <div className={classes.header}>
@@ -16,7 +17,7 @@ const Header = ({
       </a>
       {inputVisible
         ? (
-          <div>
+          <div className={classes.headerInputWrapper}>
             <input
               className={classes.headerInput}
               type="text"
@@ -45,5 +46,10 @@ const Header = ({
     </div>
   </div>
 )
-
+Header.prototype = {
+  valueSearch: string,
+  setValueSearch: func,
+  hiddenInput: func,
+  inputVisible: bool
+}
 export default Header

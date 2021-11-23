@@ -1,7 +1,8 @@
 import React from 'react'
+import { func, shape, string } from 'prop-types'
 import Card from '../card/Card'
 
-const Favorite = ({ favorite, removeFavorite, showDetail, toggleHover }) => (favorite.map((item) => (
+const Favorite = ({ favorite, removeFavorite, showDetail }) => (favorite.map((item) => (
   <Card
     key={item.id}
     favorite={favorite}
@@ -11,8 +12,18 @@ const Favorite = ({ favorite, removeFavorite, showDetail, toggleHover }) => (fav
     title={item.title}
     removeFavorite={removeFavorite}
     showDetail={showDetail}
-    toggleHover={toggleHover}
   />
 )))
+
+Favorite.prototype = {
+  favorite: shape({
+    alt: string,
+    id: string,
+    src: string,
+    title: string
+  }),
+  removeFavorite: func,
+  showDetail: func
+}
 
 export default Favorite
