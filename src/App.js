@@ -18,7 +18,6 @@ const App = () => {
   const href = window.location.pathname
   const dataLocalStorage = JSON.parse(localStorage.getItem('favorite'))
 
-
   useEffect(() => {
     if (fetching && href === '/' && valueSearch === '') {
       fetchTemplate(`https://kitsu.io/api/edge/anime?page%5Blimit%5D=20&page%5Boffset%5D=${currentPage}`, 'get')
@@ -124,7 +123,6 @@ const App = () => {
           }
         />
       </Routes>
-
       <Routes>
         <Route
           path="/"

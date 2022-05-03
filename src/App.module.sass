@@ -20,3 +20,27 @@ html
   height: 80px
   background: #ffbfbe
 
+//@media (max-width: 1600px)
+
+
+@media (max-width: 1200px)
+  .content
+    grid-template-columns: repeat(3, 1fr)
+    max-width: 950px
+    padding-right: 80px
+    padding-left: 80px
+
+@media (max-width: 991px)
+  .content
+    grid-template-columns: repeat(2, 1fr)
+    max-width: 650px
+
+@media (max-width: 767px)
+  .content
+    padding-right: 20px
+    padding-left: 20px
+
+@media (max-width: 479px)
+  .content
+    grid-template-columns: repeat(1, 1fr)
+    max-width: 440px

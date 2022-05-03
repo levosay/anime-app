@@ -19,6 +19,7 @@
   font-size: 38px;
   color: #00bfff;
   text-shadow: 1px 1px 3px #666;
+  margin-left: 30px;
 }
 .headerTitleLink {
   text-decoration: none;
@@ -40,6 +41,7 @@
   text-decoration: none;
   text-shadow: 1px 1px 3px #666;
   color: #f5f5f7;
+  margin-right: 40px;
 }
 .headerLink:hover {
   color: #00bfff;
@@ -48,6 +50,7 @@
   grid-area: links;
   display: flex;
   justify-content: space-around;
+  margin-right: 40px;
 }
 
 /*# sourceMappingURL=header.module.css.map */
